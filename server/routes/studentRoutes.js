@@ -11,6 +11,6 @@ const router = express.Router();
 router.post("/newStudent", registerStudent);
 router.get("/students", getAllStudent);
 router.get("/students/course", filterByCourse);
-router.get("/student/:id", getSingleStudent);
+router.get("/:id", getSingleStudent);
 
 export default router;

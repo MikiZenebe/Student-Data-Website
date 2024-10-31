@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getStudentsFetch, setPage } from "../redux/reducer/studentReducer";
 import { RootState } from "../redux/store";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 export default function StudentList() {
   const dispatch = useDispatch();
@@ -46,16 +47,24 @@ export default function StudentList() {
                   {Array.isArray(students) &&
                     students.map((student, i) => {
                       return (
-                        <tr key={student._id}>
+                        <tr className="hover:bg-gray-700" key={student._id}>
                           <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                            <p className="whitespace-no-wrap">{i + 1}</p>
+                            <Link
+                              to={`/student/${student._id}`}
+                              className="whitespace-no-wrap"
+                            >
+                              {i + 1}
+                            </Link>
                           </td>
                           <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
                             <div className="flex items-center">
                               <div className="">
-                                <p className="whitespace-no-wrap">
+                                <Link
+                                  to={`/student/${student._id}`}
+                                  className="whitespace-no-wrap"
+                                >
                                   {student.fullName}
-                                </p>
+                                </Link>
                               </div>
                             </div>
                           </td>
