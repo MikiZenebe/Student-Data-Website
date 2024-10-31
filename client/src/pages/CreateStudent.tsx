@@ -29,7 +29,7 @@ export default function CreateStudent() {
         setContactInfo("");
       }
     } catch (error) {
-      toast.success(error);
+      toast.success(error as string);
       navigate("/create");
     }
   };
